@@ -2,22 +2,31 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white border-t border-gray-100 py-8 mt-16">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <div className="flex justify-center gap-4 mb-4 text-3xl">
-          <span className="hover-wobble cursor-default">🏠</span>
-          <span className="hover-wobble cursor-default">💑</span>
-          <span className="hover-wobble cursor-default">📚</span>
-          <span className="hover-wobble cursor-default">🍽️</span>
-          <span className="hover-wobble cursor-default">🎸</span>
-          <span className="hover-wobble cursor-default">⛳</span>
-          <span className="hover-wobble cursor-default">🚴</span>
+    <footer className="border-t-2 border-[var(--color-paper)] py-12 mt-16 z-content relative">
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        {/* Decorative emojis */}
+        <div className="flex justify-center gap-3 mb-6 text-2xl">
+          <span className="hover:scale-110 transition-transform cursor-default">🏠</span>
+          <span className="hover:scale-110 transition-transform cursor-default">💑</span>
+          <span className="hover:scale-110 transition-transform cursor-default">📚</span>
+          <span className="hover:scale-110 transition-transform cursor-default">🍽️</span>
+          <span className="hover:scale-110 transition-transform cursor-default">🎸</span>
+          <span className="hover:scale-110 transition-transform cursor-default">⛳</span>
+          <span className="hover:scale-110 transition-transform cursor-default">🚴</span>
         </div>
-        <p className="text-gray-500 font-body">
-          Tehty rakkaudella {currentYear} 💖
+
+        {/* Divider */}
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <span className="h-px w-16 bg-[var(--color-paper)]"></span>
+          <span className="text-[var(--color-amber)]">✦</span>
+          <span className="h-px w-16 bg-[var(--color-paper)]"></span>
+        </div>
+
+        <p className="font-body text-[var(--color-ink-light)]">
+          Tehty rakkaudella {currentYear}
         </p>
-        <p className="text-gray-400 text-sm mt-2 font-body">
-          Vuodet 2024-2025 olivat täynnä seikkailuja!
+        <p className="font-display text-sm text-[var(--color-ink-light)] mt-2 italic opacity-70">
+          Vuodet 2024–2025 olivat täynnä seikkailuja!
         </p>
       </div>
     </footer>

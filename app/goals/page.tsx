@@ -10,7 +10,7 @@ const goals: Goal[] = [
     description: "Valmistua opinnoista ja löytää unelmatyö IT-alalta. Koodaus, DevOps tai data – kaikki kiinnostaa!",
     emoji: "💼💻",
     status: "in_progress",
-    color: "coral",
+    color: "terracotta",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const goals: Goal[] = [
     description: "Jatkaa säännöllistä treeniä salilla ja juoksemista. Tavoitteena rakentaa voimaa ja kestävyyttä.",
     emoji: "💪🏋️",
     status: "in_progress",
-    color: "mint",
+    color: "sage",
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const goals: Goal[] = [
     description: "Oppia uusia taitoja, kehittyä ihmisenä ja nauttia elämästä täysillä.",
     emoji: "🌱📖",
     status: "in_progress",
-    color: "sky",
+    color: "blue",
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const goals: Goal[] = [
     description: "Kokea uusia paikkoja ja seikkailuja yhdessä Micaelan kanssa. Ehkä Eurooppaan?",
     emoji: "✈️🌍",
     status: "not_started",
-    color: "yellow",
+    color: "amber",
   },
 ];
 
@@ -43,37 +43,32 @@ export default function Goals() {
   const completedCount = goals.filter((g) => g.status === "completed").length;
 
   return (
-    <div className="min-h-screen bg-playful">
+    <div className="min-h-screen bg-scrapbook">
       <Header />
 
-      {/* Decorative Blobs */}
-      <div className="blob blob-coral" style={{ top: "15%", left: "-10%" }} />
-      <div className="blob blob-mint" style={{ top: "60%", right: "-8%" }} />
-      <div className="blob blob-yellow" style={{ bottom: "10%", left: "10%" }} />
-
-      <main className="pt-32 pb-16 px-6">
+      <main className="pt-28 pb-16 px-6 z-content relative">
         <div className="max-w-5xl mx-auto">
           {/* Page Header */}
           <div className="text-center mb-12">
-            <h1 className="section-title animate-fade-up">
-              🎯 Tavoitteet 2025
-            </h1>
+            <div className="section-title-wrapper animate-fade-up">
+              <h1 className="section-title inline-block">Tavoitteet 2025</h1>
+            </div>
             <p className="section-subtitle animate-fade-up animate-delay-100">
               Unelmat ja päämäärät, joita kohti kuljen
             </p>
           </div>
 
           {/* Stats Bar */}
-          <div className="flex justify-center gap-6 mb-12 animate-fade-up animate-delay-200">
-            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-              <span className="text-xl">🔥</span>
-              <span className="font-display font-bold text-charcoal">{inProgressCount}</span>
-              <span className="font-body text-gray-500 text-sm">käynnissä</span>
+          <div className="flex justify-center gap-4 mb-12 animate-fade-up animate-delay-200">
+            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded shadow-sm border border-[var(--color-paper)]">
+              <span className="text-lg">🔥</span>
+              <span className="font-display font-bold text-[var(--color-ink)]">{inProgressCount}</span>
+              <span className="font-body text-[var(--color-ink-light)] text-sm">käynnissä</span>
             </div>
-            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-              <span className="text-xl">✅</span>
-              <span className="font-display font-bold text-charcoal">{completedCount}</span>
-              <span className="font-body text-gray-500 text-sm">valmis</span>
+            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded shadow-sm border border-[var(--color-paper)]">
+              <span className="text-lg">✅</span>
+              <span className="font-display font-bold text-[var(--color-ink)]">{completedCount}</span>
+              <span className="font-body text-[var(--color-ink-light)] text-sm">valmis</span>
             </div>
           </div>
 
@@ -85,13 +80,13 @@ export default function Goals() {
           </div>
 
           {/* Motivational Quote */}
-          <div className="mt-16 text-center animate-fade-up animate-delay-500">
-            <div className="bg-white rounded-2xl p-8 shadow-lg max-w-2xl mx-auto">
-              <div className="text-4xl mb-4">💫</div>
-              <blockquote className="font-display text-xl text-charcoal italic mb-4">
+          <div className="mt-20 text-center animate-fade-up animate-delay-500">
+            <div className="scrapbook-card max-w-xl mx-auto">
+              <div className="text-3xl mb-4">💫</div>
+              <blockquote className="font-display text-xl text-[var(--color-ink)] italic mb-4">
                 &quot;Pienet askeleet vievät kohti suuria unelmia.&quot;
               </blockquote>
-              <p className="font-body text-gray-500">
+              <p className="font-body text-[var(--color-ink-light)]">
                 Jokainen päivä on mahdollisuus päästä lähemmäs tavoitteita!
               </p>
             </div>

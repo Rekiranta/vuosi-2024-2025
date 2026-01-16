@@ -16,20 +16,20 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <nav className="max-w-6xl mx-auto px-6 py-4">
+    <header className="fixed top-0 left-0 right-0 z-50 nav-scrapbook">
+      <nav className="max-w-5xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
-            className="font-display font-bold text-xl text-coral flex items-center gap-2 hover:scale-105 transition-transform"
+            className="font-display font-bold text-xl text-[var(--color-terracotta)] flex items-center gap-2 hover:scale-105 transition-transform"
           >
-            <span className="text-2xl">✨</span>
-            <span>2024-2025</span>
+            <span className="text-xl">📔</span>
+            <span>2024–2025</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -44,11 +44,11 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-[var(--color-paper)] transition-colors"
             aria-label="Toggle menu"
           >
             <svg
-              className="w-6 h-6 text-charcoal"
+              className="w-6 h-6 text-[var(--color-ink)]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -74,8 +74,8 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-100 pt-4">
-            <div className="flex flex-col gap-2">
+          <div className="md:hidden mt-4 pb-4 border-t-2 border-[var(--color-paper)] pt-4">
+            <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}

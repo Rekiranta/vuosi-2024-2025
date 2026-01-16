@@ -6,43 +6,41 @@ import Footer from "@/components/Footer";
 import { events } from "@/data/events";
 
 export default function Home() {
-  // Get the 3 most recent events for preview
   const previewEvents = events.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-playful">
+    <div className="min-h-screen bg-scrapbook">
       <Header />
 
-      {/* Decorative Blobs */}
-      <div className="blob blob-coral" style={{ top: "10%", right: "-5%" }} />
-      <div className="blob blob-mint" style={{ top: "40%", left: "-10%" }} />
-      <div className="blob blob-yellow" style={{ bottom: "20%", right: "10%" }} />
-
       {/* Hero Section */}
-      <main className="pt-32 pb-16 px-6">
+      <main className="pt-28 pb-16 px-6 z-content">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Animated Emoji Header */}
-          <div className="flex justify-center gap-4 mb-8 text-5xl">
-            <span className="animate-bounce-in animate-delay-100 float">✨</span>
-            <span className="animate-bounce-in animate-delay-200 float" style={{ animationDelay: "0.5s" }}>🎉</span>
-            <span className="animate-bounce-in animate-delay-300 float" style={{ animationDelay: "1s" }}>💫</span>
+          {/* Decorative tape elements */}
+          <div className="relative inline-block mb-8">
+            <div className="tape tape-pink -rotate-12" style={{ top: '-20px', left: '-60px' }} />
+            <div className="tape tape-blue rotate-6" style={{ top: '-15px', right: '-70px' }} />
           </div>
 
           {/* Main Heading */}
-          <h1 className="animate-fade-up font-display text-5xl md:text-6xl font-extrabold mb-6">
-            <span className="bg-gradient-to-r from-coral via-sky to-mint bg-clip-text text-transparent">
-              Hei!
+          <h1 className="animate-fade-up font-display text-5xl md:text-7xl font-black mb-6 leading-tight">
+            <span className="block text-[var(--color-terracotta)]">Hei!</span>
+            <span className="block text-[var(--color-ink)] mt-2">
+              Tervetuloa<br />kuulumisilleni
             </span>
-            <br />
-            <span className="text-charcoal">Tervetuloa kuulumisilleni</span>
           </h1>
 
+          {/* Decorative flourish */}
+          <div className="flex items-center justify-center gap-4 mb-8 animate-fade-up animate-delay-100">
+            <span className="h-px w-12 bg-[var(--color-amber)]"></span>
+            <span className="text-2xl">✦</span>
+            <span className="h-px w-12 bg-[var(--color-amber)]"></span>
+          </div>
+
           {/* Subtitle */}
-          <p className="animate-fade-up animate-delay-200 font-body text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="animate-fade-up animate-delay-200 font-body text-lg md:text-xl text-[var(--color-ink-light)] mb-10 max-w-xl mx-auto leading-relaxed">
             Täältä löydät kaikki tärkeimmät hetket ja tapahtumat elämästäni vuosina{" "}
-            <span className="font-bold text-coral">2024</span> ja{" "}
-            <span className="font-bold text-sky">2025</span>.
-            Yhteenmuutto, opiskelu, työ, ja paljon muuta!
+            <strong className="text-[var(--color-terracotta)]">2024</strong> ja{" "}
+            <strong className="text-[var(--color-sage)]">2025</strong>.
           </p>
 
           {/* CTA Button */}
@@ -54,70 +52,76 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Preview Cards Section */}
-        <section className="max-w-6xl mx-auto mt-24">
-          <h2 className="section-title animate-fade-up">Viimeisimmät tapahtumat</h2>
+        {/* Preview Cards - Polaroid Style */}
+        <section className="max-w-5xl mx-auto mt-24">
+          <div className="section-title-wrapper animate-fade-up">
+            <h2 className="section-title inline-block">Viimeisimmät hetket</h2>
+          </div>
           <p className="section-subtitle animate-fade-up animate-delay-100">
             Pieni kurkistus mitä kaikkea on tapahtunut
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {previewEvents.map((event, index) => (
-              <div
-                key={event.id}
-                className={`card animate-fade-up animate-delay-${(index + 2) * 100} hover-wobble`}
-              >
-                {/* Emoji */}
-                <div className="text-4xl mb-4">{event.emoji}</div>
-
-                {/* Date */}
-                <p className="text-sm font-display font-semibold text-gray-400 mb-2">
-                  {event.date}
-                </p>
-
-                {/* Title */}
-                <h3 className="font-display font-bold text-lg text-charcoal mb-2">
-                  {event.title}
-                </h3>
-
-                {/* Short Description */}
-                <p className="font-body text-gray-600 text-sm line-clamp-2">
-                  {event.description}
-                </p>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-3 gap-8 md:gap-6">
+            {previewEvents.map((event, index) => {
+              const rotations = ['-rotate-2', 'rotate-1', '-rotate-1'];
+              return (
+                <div
+                  key={event.id}
+                  className={`polaroid ${rotations[index]} animate-fade-up animate-delay-${(index + 2) * 100}`}
+                >
+                  <div className="polaroid-content">
+                    {event.emoji}
+                  </div>
+                  <p className="polaroid-caption">{event.title}</p>
+                </div>
+              );
+            })}
           </div>
 
           {/* View All Link */}
-          <div className="text-center mt-10 animate-fade-up animate-delay-500">
+          <div className="text-center mt-12 animate-fade-up animate-delay-500">
             <Link href="/timeline" className="btn-secondary">
               Näytä kaikki tapahtumat ({events.length})
             </Link>
           </div>
         </section>
 
-        {/* Fun Stats Section */}
-        <section className="max-w-4xl mx-auto mt-24 text-center">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="card card-coral animate-fade-up animate-delay-100">
-              <div className="text-3xl mb-2">🏠</div>
-              <div className="font-display font-bold text-2xl text-charcoal">1</div>
-              <div className="font-body text-sm text-gray-500">Yhteenmuutto</div>
+        {/* Stats Section - Stamp Style */}
+        <section className="max-w-4xl mx-auto mt-24">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            <div className="stamp-card animate-fade-up animate-delay-100">
+              <div className="stamp-emoji">🏠</div>
+              <div className="stamp-number">1</div>
+              <div className="stamp-label">Yhteenmuutto</div>
             </div>
-            <div className="card card-sky animate-fade-up animate-delay-200">
-              <div className="text-3xl mb-2">💪</div>
-              <div className="font-display font-bold text-2xl text-charcoal">4</div>
-              <div className="font-body text-sm text-gray-500">Uutta harrastusta</div>
+            <div className="stamp-card animate-fade-up animate-delay-200">
+              <div className="stamp-emoji">💪</div>
+              <div className="stamp-number">4</div>
+              <div className="stamp-label">Harrastusta</div>
             </div>
-            <div className="card card-mint animate-fade-up animate-delay-300">
-              <div className="text-3xl mb-2">🧳</div>
-              <div className="font-display font-bold text-2xl text-charcoal">2</div>
-              <div className="font-body text-sm text-gray-500">Reissua</div>
+            <div className="stamp-card animate-fade-up animate-delay-300">
+              <div className="stamp-emoji">🧳</div>
+              <div className="stamp-number">2</div>
+              <div className="stamp-label">Reissua</div>
             </div>
-            <div className="card card-yellow animate-fade-up animate-delay-400">
-              <div className="text-3xl mb-2">🎸</div>
-              <div className="font-display font-bold text-2xl text-charcoal">1</div>
-              <div className="font-body text-sm text-gray-500">Unelmakonsertti</div>
+            <div className="stamp-card animate-fade-up animate-delay-400">
+              <div className="stamp-emoji">🎸</div>
+              <div className="stamp-number">1</div>
+              <div className="stamp-label">Konsertti</div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quote Section */}
+        <section className="max-w-2xl mx-auto mt-24 text-center animate-fade-up animate-delay-500">
+          <div className="scrapbook-card">
+            <p className="font-display text-xl md:text-2xl text-[var(--color-ink)] italic leading-relaxed">
+              &quot;Elämä on täynnä pieniä ihmeitä, kun vain muistaa pysähtyä katsomaan.&quot;
+            </p>
+            <div className="flex items-center justify-center gap-2 mt-4">
+              <span className="text-[var(--color-amber)]">✦</span>
+              <span className="font-body text-sm text-[var(--color-ink-light)]">2024-2025</span>
+              <span className="text-[var(--color-amber)]">✦</span>
             </div>
           </div>
         </section>

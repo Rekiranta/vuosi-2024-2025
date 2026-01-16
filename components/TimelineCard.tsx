@@ -5,23 +5,17 @@ interface TimelineCardProps {
   index: number;
 }
 
-const tagColors: Record<string, string> = {
-  Elämä: "tag-elama",
-  Työ: "tag-tyo",
-  Opiskelu: "tag-opiskelu",
-  Harrastukset: "tag-harrastukset",
-};
-
-const borderColors: Record<string, string> = {
-  Elämä: "border-coral",
-  Työ: "border-mint",
-  Opiskelu: "border-sky",
-  Harrastukset: "border-yellow",
+const tagStyles: Record<string, string> = {
+  Elämä: "sticker-terracotta",
+  Työ: "sticker-sage",
+  Opiskelu: "sticker-blue",
+  Harrastukset: "sticker-amber",
 };
 
 export default function TimelineCard({ event, index }: TimelineCardProps) {
   const isEven = index % 2 === 0;
   const delayClass = `animate-delay-${(index % 5) * 100 + 100}`;
+  const rotation = isEven ? "-rotate-1" : "rotate-1";
 
   return (
     <div
@@ -29,38 +23,35 @@ export default function TimelineCard({ event, index }: TimelineCardProps) {
         isEven ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
       }`}
     >
-      <div
-        className={`timeline-card hover-wobble ${borderColors[event.tag]}`}
-        style={{ borderColor: "transparent" }}
-      >
-        {/* Emoji Container */}
-        <div className="emoji-container">
-          <span className="text-5xl">{event.emoji}</span>
+      <div className={`postcard ${rotation}`}>
+        {/* Stamp */}
+        <div className="postcard-stamp">
+          {event.year}
         </div>
 
-        {/* Date Badge */}
-        <div className="flex items-center justify-between mb-3">
-          <span className="text-sm font-display font-semibold text-gray-400">
-            {event.date}
-          </span>
-          <span className={`tag ${tagColors[event.tag]}`}>{event.tag}</span>
-        </div>
+        {/* Dashed divider line */}
+        <div className="postcard-divider hidden md:block" />
 
-        {/* Title */}
-        <h3 className="font-display font-bold text-xl text-charcoal mb-2">
-          {event.title}
-        </h3>
+        {/* Content */}
+        <div className="postcard-content">
+          {/* Emoji */}
+          <div className="postcard-emoji">{event.emoji}</div>
 
-        {/* Description */}
-        <p className="font-body text-gray-600 leading-relaxed">
-          {event.description}
-        </p>
+          {/* Date */}
+          <p className="postcard-date">{event.date}</p>
 
-        {/* Year Badge */}
-        <div className="mt-4 flex justify-end">
-          <span className="text-xs font-display font-bold text-white bg-gradient-to-r from-coral to-sky px-3 py-1 rounded-full">
-            {event.year}
-          </span>
+          {/* Title */}
+          <h3 className="postcard-title">{event.title}</h3>
+
+          {/* Description */}
+          <p className="postcard-description">{event.description}</p>
+
+          {/* Tag */}
+          <div className="mt-4">
+            <span className={`sticker ${tagStyles[event.tag]}`}>
+              {event.tag}
+            </span>
+          </div>
         </div>
       </div>
     </div>

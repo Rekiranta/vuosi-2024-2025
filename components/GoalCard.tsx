@@ -1,5 +1,5 @@
 export type GoalStatus = "not_started" | "in_progress" | "completed";
-export type GoalColor = "coral" | "mint" | "sky" | "yellow";
+export type GoalColor = "terracotta" | "sage" | "amber" | "blue";
 
 export interface Goal {
   id: number;
@@ -19,56 +19,45 @@ const statusConfig: Record<GoalStatus, { icon: string; label: string; className:
   not_started: {
     icon: "🎯",
     label: "Ei aloitettu",
-    className: "status-not-started",
+    className: "status-pending",
   },
   in_progress: {
     icon: "🔥",
     label: "Käynnissä",
-    className: "status-in-progress",
+    className: "status-active",
   },
   completed: {
     icon: "✅",
     label: "Valmis",
-    className: "status-completed",
+    className: "status-done",
   },
-};
-
-const colorClasses: Record<GoalColor, string> = {
-  coral: "goal-card-coral",
-  mint: "goal-card-mint",
-  sky: "goal-card-sky",
-  yellow: "goal-card-yellow",
 };
 
 export default function GoalCard({ goal, index }: GoalCardProps) {
   const status = statusConfig[goal.status];
   const delayClass = `animate-delay-${(index + 1) * 100}`;
+  const progressWidth = goal.status === "completed" ? "100%" : goal.status === "in_progress" ? "50%" : "0%";
 
   return (
-    <div className={`goal-card ${colorClasses[goal.color]} animate-fade-up ${delayClass}`}>
+    <div className={`journal-card ${goal.color} animate-fade-up ${delayClass}`}>
       {/* Status Badge */}
-      <div className={`goal-status ${status.className}`}>
+      <div className={`journal-status ${status.className}`}>
         <span>{status.icon}</span>
         <span>{status.label}</span>
       </div>
 
       {/* Emoji */}
-      <div className="goal-emoji">
-        {goal.emoji}
-      </div>
+      <div className="journal-emoji">{goal.emoji}</div>
 
-      {/* Content */}
-      <h3 className="goal-title">{goal.title}</h3>
-      <p className="goal-description">{goal.description}</p>
+      {/* Title */}
+      <h3 className="journal-title">{goal.title}</h3>
+
+      {/* Description */}
+      <p className="journal-description">{goal.description}</p>
 
       {/* Progress Bar */}
-      <div className="goal-progress">
-        <div
-          className="goal-progress-bar"
-          style={{
-            width: goal.status === "completed" ? "100%" : goal.status === "in_progress" ? "50%" : "0%"
-          }}
-        />
+      <div className="progress-track">
+        <div className="progress-fill" style={{ width: progressWidth }} />
       </div>
     </div>
   );
