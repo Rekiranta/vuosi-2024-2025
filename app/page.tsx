@@ -105,19 +105,19 @@ export default function Home() {
               <div className="font-body text-sm text-gray-500">Yhteenmuutto</div>
             </div>
             <div className="card card-sky animate-fade-up animate-delay-200">
-              <div className="text-3xl mb-2">📚</div>
-              <div className="font-display font-bold text-2xl text-charcoal">1</div>
-              <div className="font-body text-sm text-gray-500">Uusi ala</div>
+              <div className="text-3xl mb-2">💪</div>
+              <div className="font-display font-bold text-2xl text-charcoal">4</div>
+              <div className="font-body text-sm text-gray-500">Uutta harrastusta</div>
             </div>
             <div className="card card-mint animate-fade-up animate-delay-300">
+              <div className="text-3xl mb-2">🧳</div>
+              <div className="font-display font-bold text-2xl text-charcoal">2</div>
+              <div className="font-body text-sm text-gray-500">Reissua</div>
+            </div>
+            <div className="card card-yellow animate-fade-up animate-delay-400">
               <div className="text-3xl mb-2">🎸</div>
               <div className="font-display font-bold text-2xl text-charcoal">1</div>
               <div className="font-body text-sm text-gray-500">Unelmakonsertti</div>
-            </div>
-            <div className="card card-yellow animate-fade-up animate-delay-400">
-              <div className="text-3xl mb-2">⛳</div>
-              <div className="font-display font-bold text-2xl text-charcoal">2</div>
-              <div className="font-body text-sm text-gray-500">Uutta harrastusta</div>
             </div>
           </div>
         </section>

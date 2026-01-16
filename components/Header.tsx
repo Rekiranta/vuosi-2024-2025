@@ -11,6 +11,7 @@ export default function Header() {
   const navLinks = [
     { href: "/", label: "Koti" },
     { href: "/timeline", label: "Aikajana" },
+    { href: "/goals", label: "Tavoitteet" },
     { href: "/about", label: "Tietoa" },
   ];
 

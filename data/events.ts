@@ -81,6 +81,46 @@ export const events: LifeEvent[] = [
     tag: "Elämä",
     year: 2025,
   },
+  {
+    id: 8,
+    date: "Syksy 2024",
+    title: "Takaisin salille",
+    description:
+      "Palasin takaisin kuntosalille! Tavoitteena rakentaa voimaa ja pitää huolta hyvinvoinnista. Treenaaminen on tullut osaksi viikkorutiinia. 💪",
+    emoji: "🏋️💪",
+    tag: "Harrastukset",
+    year: 2024,
+  },
+  {
+    id: 9,
+    date: "Kevät 2025",
+    title: "Juoksuharrastus",
+    description:
+      "Aloitin juoksemisen! Aamulenkkeily on parasta – raitis ilma ja hyvä fiilis koko päiväksi. Tavoitteena pikkuhiljaa pidentää matkoja. 🏃",
+    emoji: "🏃‍♂️🌅",
+    tag: "Harrastukset",
+    year: 2025,
+  },
+  {
+    id: 10,
+    date: "Kesä 2024",
+    title: "Mökkireissu",
+    description:
+      "Rentouttava mökkireissu Suomen luonnossa! Saunomista, grillailua ja laatuaikaa. Parasta vastapainoa arjelle. 🌲",
+    emoji: "🏕️🌲",
+    tag: "Elämä",
+    year: 2024,
+  },
+  {
+    id: 11,
+    date: "2025",
+    title: "Viikonloppureissu Micaelan kanssa",
+    description:
+      "Ihana viikonloppuloma yhdessä! Uusia paikkoja, hyviä hetkiä ja muistoja, jotka jäävät mieleen. 💕",
+    emoji: "🧳💑",
+    tag: "Elämä",
+    year: 2025,
+  },
 ];
 
 export const tags: Tag[] = ["Elämä", "Työ", "Opiskelu", "Harrastukset"];
